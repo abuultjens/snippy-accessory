@@ -1,5 +1,5 @@
 # snippy-pan
-Provides a pan-genome variant matrix from snippy-core full genome alignments. It will output a tsv table of all sites that have at least one 'N' regardless of if there is a SNP at that site or not. Such a matrix is useful to look for deletions relative to the reference. 
+Provides a pan-genome variant matrix from snippy-core full genome alignments. It will output a tsv table of all sites that have at least one 'N' regardless of if there is a SNP at that site or not. Such a matrix is useful to look for deletions relative to a reference or the discovery of SNP sites that are in the accessory genome that therefore would not feature in any snippy-core outfiles.
 
 
 ### get the code
