@@ -64,7 +64,7 @@ done
 datamash transpose -H < ${RAND}.tsv.seq > ${RAND}.tsv.tr.tmp.seq
 
 # make header
-tr '\n' '\t' < ${FOFN} > ${RAND}.tsv.tr.seq
+tr '\n' '\t' < ${FOFN} | sed s/\t$// > ${RAND}.tsv.tr.seq
 echo '' >> ${RAND}.tsv.tr.seq
 
 # add header
