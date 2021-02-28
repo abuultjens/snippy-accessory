@@ -63,8 +63,8 @@ done
 # transpose
 datamash transpose -H < ${RAND}.tsv.seq > ${RAND}.tsv.tr.tmp.seq
 
-# make header
-tr '\n' '\t' < ${FOFN} | sed s/\t$// > ${RAND}.tsv.tr.seq
+# make header and remove tab from end of line
+tr '\n' '\t' < ${FOFN} | tr '\t' ',' | sed 's/.$//' | tr ',' '\t' > ${RAND}.tsv.tr.seq
 echo '' >> ${RAND}.tsv.tr.seq
 
 # add header
