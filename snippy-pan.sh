@@ -33,14 +33,8 @@ for GROUP in $(cat ${RAND}_FOFN.txt); do
 
 	# loop through isolates in group
 	for TAXA in $(cat ${FILE}); do
-		## write fa seq to file
-		# WITH ALLELES
+		## write single line seq to file
 		samtools faidx ${ALIGNMENT} ${TAXA} | grep -v ">" | tr -d '\n' | tr '-' 'N' >> ${RAND}_${TAXA}.seq &
-		# BINARY
-#		samtools faidx ${ALIGNMENT} ${TAXA} | grep -v ">" | tr -d '\n' | tr '-' 'N' | \
-#		tr 'N' '0' | tr 'A' '1' | tr 'G' '1' | tr 'C' '1' | tr 'T' '1' >> ${RAND}_${TAXA}.seq &
-
-
 	done
 
 	wait
