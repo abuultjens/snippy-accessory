@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# read pos args
 ALIGNMENT=${1}
 FOFN=${2}
 OUTFILE=${3}
 
+# set n parallel processes
 N_SPLIT=10
 
 # index input mfa
@@ -43,12 +45,14 @@ for GROUP in $(cat ${RAND}_FOFN.txt); do
 
 	wait
 
+	# add line endings
 	for TAXA in $(cat ${FILE}); do
 		echo '' >> ${RAND}_${TAXA}.seq
 	done
 
 	wait
 
+	# insert tabs between all chr
 	for TAXA in $(cat ${FILE}); do
 		sed 's/./&,/g' < ${RAND}_${TAXA}.seq | sed 's/.$//' | tr ',' '\t' > ${RAND}_${TAXA}.tsv.seq &
 	done
@@ -80,7 +84,10 @@ seq 1 ${LINES} >> seq_1-${LINES}_${RAND}.txt
 # add index
 paste seq_1-${LINES}_${RAND}.txt ${RAND}.tsv.tr.seq > ${RAND}_ALL.tsv.tr.seq
 
+# write header to outfile
 head -1 ${RAND}_ALL.tsv.tr.seq > ${OUTFILE}
+
+# write body to outfile
 tail -n +2 ${RAND}_ALL.tsv.tr.seq | grep "N" >> ${OUTFILE}
 
 # rm tmp files		
