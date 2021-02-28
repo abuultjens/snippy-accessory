@@ -1,12 +1,12 @@
-# snippy-pan
-Provides a pan-genome variant matrix from snippy-core full genome alignments. It will output a tsv table of all sites that have at least one 'N' regardless of if there is a SNP at that site or not. Such a matrix is useful to look for deletions relative to a reference or the discovery of SNP sites that are in the accessory genome that therefore would not feature in any snippy-core outfiles.
+# snippy-accessory
+Provides a accessory-genome variant matrix from snippy-core full genome alignments. It will output a tsv table of all sites that have at least one 'N' regardless of if there is a SNP at that site or not. Such a matrix is useful to look for deletions relative to a reference or the discovery of SNP sites that are in the accessory genome that therefore would not feature in any snippy-core outfiles.
 
 
 ### get the code
-    $ git clone https://github.com/abuultjens/snippy-pan.git
+    $ git clone https://github.com/abuultjens/snippy-accessory.git
 
 ### run the script 
-    $ snippy-pan.sh [snippy-core.full.clean.aln] [fofn.txt] [OUTFILE]
+    $ snippy-accessory.sh [snippy-core.full.clean.aln] [fofn.txt] [OUTFILE]
     
 ##### arguments: 
 ``snippy.full.clean.aln`` snippy whole genome multi fasta alignment with sequence blocks consiting of only: A, G, C, T and N. This can be done with snippy-clean_full_aln (https://github.com/tseemann/snippy)  
@@ -29,7 +29,7 @@ The header line will have all isolates in the same order as the fofn.txt file. T
 ### run snippy-clean_full_aln
     $ snippy-clean_full_aln test.full.aln > test.full.clean.aln  
     
-### run snippy-pan.sh
-    $ snippy-pan.sh test.full.clean.aln fofn.txt test.full.clean.pan.tab  
+### run snippy-accessory.sh
+    $ snippy-accessory.sh test.full.clean.aln fofn.txt test.full.clean.accessory.tab  
     
     
