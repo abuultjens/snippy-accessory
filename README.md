@@ -10,8 +10,8 @@ Provides a accessory-genome variant matrix from snippy-core full genome alignmen
     
 ##### arguments: 
 ``snippy.full.clean.aln`` snippy whole genome multi fasta alignment with sequence blocks consiting of only: A, G, C, T and N. This can be done with snippy-clean_full_aln (https://github.com/tseemann/snippy)  
-``fofn.txt`` single column text file with ordered list of isolate names
-``OUTFILE`` name of outfile (will be tab seperated)
+``fofn.txt`` single column text file with ordered list of isolate names  
+``OUTFILE`` name of outfile (will be tab seperated)  
 
 # Outfile
 The header line will have all isolates in the same order as the fofn.txt file. The first column is an index with the position of the variant in the snippy-core full genome alignment. Numbers larger than the reference chromosome will occur when the ref contains plasmids. 
